@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Launcher extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/customer_form.fxml"));
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/dashboard_form.fxml"));
         Scene scene = new Scene(rootNode);
         stage.setScene(scene);
         stage.show();

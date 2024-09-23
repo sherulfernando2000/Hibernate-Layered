@@ -2,6 +2,10 @@ package lk.ijse.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -11,6 +15,9 @@ public class Customer {
     private String address;
     private String tele;
 
+    @OneToMany(mappedBy = "customer")
+    private List<Orders> ordersList = new ArrayList<>();
+
     public Customer() {
     }
 
@@ -19,6 +26,14 @@ public class Customer {
         this.name = name;
         this.address = address;
         this.tele = tele;
+    }
+
+    public Customer(int id, String name, String address, String tele, List<Orders> ordersList) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.tele = tele;
+        this.ordersList = ordersList;
     }
 
     public int getId() {
@@ -51,6 +66,14 @@ public class Customer {
 
     public void setTele(String tele) {
         this.tele = tele;
+    }
+
+    public List<Orders> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Orders> ordersList) {
+        this.ordersList = ordersList;
     }
 
     @Override

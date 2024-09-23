@@ -39,4 +39,11 @@ public class CustomerBOImpl implements CustomerBO {
         }
         return customerDTOS;
     }
+
+    @Override
+    public ArrayList<String> loadAllCustomerIds() {
+        return null;
+    }
+
+
 }

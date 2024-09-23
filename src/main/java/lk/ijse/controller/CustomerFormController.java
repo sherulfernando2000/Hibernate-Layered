@@ -4,20 +4,29 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.CustomerBO;
 import lk.ijse.dto.CustomerDTO;
 import lk.ijse.view.tdm.CustomerTm;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 public class CustomerFormController {
+
+    @FXML
+    private AnchorPane rootNode;
+
 
     @FXML
     private TableColumn<?, ?> colAddress;
@@ -160,4 +169,13 @@ public class CustomerFormController {
 
     }
 
+    @FXML
+    public void btnHomeOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane node = FXMLLoader.load(this.getClass().getResource("/dashboard_form.fxml"));
+        Scene scene =  new Scene(node);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Home Form");
+
+    }
 }
