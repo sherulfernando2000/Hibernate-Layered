@@ -21,7 +21,6 @@ public class Orders {
     @Id
       private String oId;
       private LocalDate date;
-      private Session session;
 
       @ManyToOne
       private Customer customer;
@@ -38,12 +37,6 @@ public class Orders {
         this.customer = customer;
     }
 
-    public Orders(String oId, LocalDate date, Customer customer, Session session) {
-        this.oId = oId;
-        this.date = date;
-        this.customer = customer;
-        this.session = session;
-    }
 
     public String getoId() {
         return oId;

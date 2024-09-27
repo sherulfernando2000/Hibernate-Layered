@@ -119,7 +119,6 @@ public class ItemDAOImpl implements ItemDAO {
             Query query = session.createQuery("update Item set qty = qty - ?1 where iId = ?2");
             query.setParameter(1,qty1);
             query.setParameter(2,entity.getiId());
-            query.executeUpdate();
 
             int result = query.executeUpdate();
 
