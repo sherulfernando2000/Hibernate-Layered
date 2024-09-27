@@ -26,4 +26,6 @@ public interface ItemBO  extends SuperBO {
     List<ItemDTO> getAllItem();
 
     ArrayList<ItemDTO> loadAllItemCodes();
+
+    ItemDTO searchItem(Integer id);
 }

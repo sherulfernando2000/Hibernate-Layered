@@ -9,18 +9,16 @@
 package lk.ijse.dao.custom;
 
 import lk.ijse.dao.CrudDAO;
-import lk.ijse.dto.ItemDTO;
-import lk.ijse.entity.Item;
+import lk.ijse.entity.OrderDetails;
 import org.hibernate.Session;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
-public interface ItemDAO extends CrudDAO<Item> {
+public interface OrderDetailDAO extends CrudDAO<OrderDetails> {
+//    public void save(List<OrderDetails> orderDetailsList) throws SQLException, ClassNotFoundException;
 
-    ArrayList<ItemDTO> loadAllItemCodes();
-
-    public boolean updateQty(Item entity, double qty1, Session session) throws SQLException, ClassNotFoundException;
-
+    public boolean save(List<OrderDetails> orderDetailsList, Session session) throws SQLException, ClassNotFoundException;
+    public boolean save(OrderDetails entity, Session session) throws SQLException, ClassNotFoundException;
 
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Customer {
+public class  Customer {
     @Id
     private int id;
     private String name;

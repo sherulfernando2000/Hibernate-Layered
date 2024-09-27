@@ -8,21 +8,26 @@
 
 package lk.ijse.dto;
 
-public class  ItemDTO {
+public class OrderDetailDTO {
+    private String oId;
     private int iId;
-    private String iName;
-    private double price;
     private double qty;
 
-
-    public ItemDTO() {
+    public OrderDetailDTO() {
     }
 
-    public ItemDTO(int iId, String iName, double price, double qty) {
+    public OrderDetailDTO(String oId, int iId, double qty) {
+        this.oId = oId;
         this.iId = iId;
-        this.iName = iName;
-        this.price = price;
         this.qty = qty;
+    }
+
+    public String getoId() {
+        return oId;
+    }
+
+    public void setoId(String oId) {
+        this.oId = oId;
     }
 
     public int getiId() {
@@ -31,22 +36,6 @@ public class  ItemDTO {
 
     public void setiId(int iId) {
         this.iId = iId;
-    }
-
-    public String getiName() {
-        return iName;
-    }
-
-    public void setiName(String iName) {
-        this.iName = iName;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public double getQty() {
@@ -59,12 +48,10 @@ public class  ItemDTO {
 
     @Override
     public String toString() {
-        return "ItemDTO{" +
-                "iId=" + iId +
-                ", iName='" + iName + '\'' +
-                ", price=" + price +
+        return "OrderDetailDTO{" +
+                "oId=" + oId +
+                ", iId=" + iId +
                 ", qty=" + qty +
                 '}';
     }
 }
-

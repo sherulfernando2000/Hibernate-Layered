@@ -30,19 +30,19 @@ public class ItemTm {
         this.qty = qty;
     }
 
-    public int getiId() {
+    public int getIId() {
         return iId;
     }
 
-    public void setiId(int iId) {
+    public void setIId(int iId) {
         this.iId = iId;
     }
 
-    public String getiName() {
+    public String getIName() {
         return iName;
     }
 
-    public void setiName(String iName) {
+    public void setIName(String iName) {
         this.iName = iName;
     }
 

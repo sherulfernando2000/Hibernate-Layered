@@ -14,4 +14,6 @@ public interface CustomerDAO extends CrudDAO<Customer> {
     boolean delete(int id);
 
     List<Customer> getAll();
+
+
 }

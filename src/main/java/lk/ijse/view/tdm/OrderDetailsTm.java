@@ -14,14 +14,14 @@ public class OrderDetailsTm {
     private String code;
     private String description;
     private int qty;
-    private BigDecimal unitPrice;
-    private BigDecimal total;
+    private double unitPrice;
+    private double total;
 
     public OrderDetailsTm() {
 
     }
 
-    public OrderDetailsTm(String code, String description, int qty, BigDecimal unitPrice, BigDecimal total) {
+    public OrderDetailsTm(String code, String description, int qty, double unitPrice, double total) {
         this.code = code;
         this.description = description;
         this.qty = qty;
@@ -53,19 +53,19 @@ public class OrderDetailsTm {
         this.qty = qty;
     }
 
-    public BigDecimal getUnitPrice() {
+    public double getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(BigDecimal unitPrice) {
+    public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public BigDecimal getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(BigDecimal total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 

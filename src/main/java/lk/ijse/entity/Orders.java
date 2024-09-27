@@ -9,7 +9,9 @@
 package lk.ijse.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.Session;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,8 +19,9 @@ import java.util.List;
 @Entity
 public class Orders {
     @Id
-      private int oId;
-      private Date date;
+      private String oId;
+      private LocalDate date;
+      private Session session;
 
       @ManyToOne
       private Customer customer;
@@ -29,25 +32,32 @@ public class Orders {
     public Orders() {
     }
 
-    public Orders(int oId, Date date, Customer customer) {
+    public Orders(String oId, LocalDate date, Customer customer) {
         this.oId = oId;
         this.date = date;
         this.customer = customer;
     }
 
-    public int getoId() {
+    public Orders(String oId, LocalDate date, Customer customer, Session session) {
+        this.oId = oId;
+        this.date = date;
+        this.customer = customer;
+        this.session = session;
+    }
+
+    public String getoId() {
         return oId;
     }
 
-    public void setoId(int oId) {
+    public void setoId(String oId) {
         this.oId = oId;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

@@ -63,5 +63,19 @@ public class CustomerDAOImpl implements CustomerDAO {
         return customer;
     }
 
+    @Override
+    public Customer search(Integer id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction trancation = session.beginTransaction();
+
+        Query query = session.createQuery("from Customer where id = ?1");
+        query.setParameter(1,id);
+        Customer customer = (Customer)query.uniqueResult();
+        trancation.commit();
+        //session.close();
+        return customer;
+
+    }
+
 
 }

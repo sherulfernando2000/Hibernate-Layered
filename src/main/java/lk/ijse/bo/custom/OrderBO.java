@@ -9,7 +9,16 @@
 package lk.ijse.bo.custom;
 
 import lk.ijse.bo.SuperBO;
+import lk.ijse.dto.OrderDTO;
+import lk.ijse.dto.OrderDetailDTO;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public interface OrderBO extends SuperBO {
     public  Object currentId();
+
+    void placeOrder(OrderDTO orderDTO, List<OrderDetailDTO> orderDetails) throws SQLException, ClassNotFoundException;
+
+    void saveOrder(OrderDTO orderDTO) throws SQLException, ClassNotFoundException;
 }

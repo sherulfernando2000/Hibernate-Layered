@@ -13,4 +13,6 @@ public interface CrudDAO<T> extends SuperDAO {
     boolean delete(int id);
 
     List<T> getAll();
+
+    T search(Integer id);
 }

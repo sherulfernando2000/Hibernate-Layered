@@ -11,7 +11,12 @@ package lk.ijse.dao.custom;
 import jakarta.persistence.criteria.Order;
 import lk.ijse.dao.CrudDAO;
 import lk.ijse.entity.Orders;
+import org.hibernate.Session;
+
+import java.sql.SQLException;
 
 public interface OrderDAO extends CrudDAO<Orders> {
     public Object currentId();
+
+    public boolean save(Orders entity, Session session) throws SQLException, ClassNotFoundException;
 }

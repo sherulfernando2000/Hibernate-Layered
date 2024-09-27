@@ -13,8 +13,9 @@ import jakarta.persistence.*;
 @Entity
 public class OrderDetails {
 
-    @EmbeddedId
-    private OrderItemId id;  // Composite key
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;  // primarykey
 
     @ManyToOne
     @JoinColumn(name = "oId")
@@ -24,12 +25,12 @@ public class OrderDetails {
     @JoinColumn(name = "iId")
     private Item item;
 
-    private int qtySold;
+    private double qtySold;
 
     public OrderDetails() {
     }
 
-    public OrderDetails(Orders order, Item item, int qtySold) {
+    public OrderDetails(Orders order, Item item, double qtySold) {
         this.order = order;
         this.item = item;
         this.qtySold = qtySold;
@@ -51,11 +52,11 @@ public class OrderDetails {
         this.item = item;
     }
 
-    public int getQtySold() {
+    public double getQtySold() {
         return qtySold;
     }
 
-    public void setQtySold(int qtySold) {
+    public void setQtySold(double qtySold) {
         this.qtySold = qtySold;
     }
 

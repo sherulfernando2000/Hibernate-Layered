@@ -17,4 +17,6 @@ public interface CustomerBO extends SuperBO {
     List<CustomerDTO> getAllCustomer();
 
     ArrayList<String> loadAllCustomerIds();
+
+    CustomerDTO searchCustomer(Integer cusId);
 }

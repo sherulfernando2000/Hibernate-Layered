@@ -60,4 +60,11 @@ public class ItemBOImpl implements ItemBO {
         }
         return itemDTOS;
     }
+
+    @Override
+    public ItemDTO searchItem(Integer id) {
+        Item item = itemDAO.search(id);
+        ItemDTO itemDAO1 = new ItemDTO(item.getiId(),item.getiName(),item.getPrice(),item.getQty());
+        return itemDAO1;
+    }
 }

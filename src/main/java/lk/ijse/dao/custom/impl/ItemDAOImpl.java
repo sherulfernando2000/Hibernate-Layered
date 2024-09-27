@@ -25,8 +25,8 @@ import java.util.List;
 
 public class ItemDAOImpl implements ItemDAO {
 
-    Session session = FactoryConfiguration.getInstance().getSession();
-    Transaction transaction = session.beginTransaction();
+
+
 
     @Override
     public boolean save(Item entity) throws SQLException, ClassNotFoundException {
@@ -43,12 +43,14 @@ public class ItemDAOImpl implements ItemDAO {
         }
     }
 
+
     @Override
     public boolean update(Item entity) throws SQLException, ClassNotFoundException {
         try{
+            Session session = FactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
             session.update(entity);
-            transaction.commit();
-            session.close();
+           transaction.commit();
             return true;
 
         }catch (Exception e){
@@ -60,6 +62,8 @@ public class ItemDAOImpl implements ItemDAO {
     @Override
     public boolean delete(int id) {
         try {
+            Session session = FactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
             Query query = session.createQuery("DELETE FROM Item WHERE iId = ?1");
             query.setParameter(1,id);
             query.executeUpdate();
@@ -75,12 +79,26 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public List<Item> getAll() {
+        Session session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("from Item");
             List<Item> items = query.list();
+        Transaction transaction = session.beginTransaction();
             transaction.commit();
-            session.close();
+            //session.close();
             return items;
 
+    }
+
+    @Override
+    public Item search(Integer id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Query query = session.createQuery("from Item where iId = ?1");
+        query.setParameter(1, id);
+        Item item = (Item) query.uniqueResult();
+        Transaction transaction = session.beginTransaction();
+        transaction.commit();
+        //session.close();
+        return item;
     }
 
 
@@ -91,5 +109,43 @@ public class ItemDAOImpl implements ItemDAO {
         return null;
 
     }
+
+    @Override
+    public boolean updateQty(Item entity, double qty1, Session session) throws SQLException, ClassNotFoundException {
+//        Session session = FactoryConfiguration.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+        try{
+            System.out.println(qty1);
+            Query query = session.createQuery("update Item set qty = qty - ?1 where iId = ?2");
+            query.setParameter(1,qty1);
+            query.setParameter(2,entity.getiId());
+            query.executeUpdate();
+
+            int result = query.executeUpdate();
+
+            // Commit the transaction if the update was successful
+            if (result > 0) {
+//               transaction.commit();
+                return true;
+            }
+
+            return true;
+
+        } catch (Exception e) {
+            // Rollback transaction if there was an issue
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to update item quantity: " + e.getMessage()).show();
+            throw e;
+        }
+    }
+
+            /*transaction.commit();
+            session.close();
+            return true;
+
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            return false;
+        }*/
 }
 

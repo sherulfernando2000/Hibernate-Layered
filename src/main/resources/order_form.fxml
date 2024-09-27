@@ -25,10 +25,22 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="21.0" layoutY="90.0" prefHeight="25.0" prefWidth="98.0" text="customer Id:" />
-      <Label layoutX="258.0" layoutY="90.0" prefHeight="25.0" prefWidth="98.0" text="customer name:" />
-      <Label layoutX="21.0" layoutY="134.0" prefHeight="25.0" prefWidth="63.0" text="Item Id:" />
-      <Label layoutX="266.0" layoutY="134.0" prefHeight="25.0" prefWidth="84.0" text="Item name:" />
+      <Label layoutX="21.0" layoutY="90.0" prefHeight="25.0" prefWidth="98.0" text="customer Id:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="258.0" layoutY="90.0" prefHeight="25.0" prefWidth="98.0" text="customer name:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="21.0" layoutY="134.0" prefHeight="25.0" prefWidth="63.0" text="Item Id:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="266.0" layoutY="134.0" prefHeight="25.0" prefWidth="84.0" text="Item name:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
       <TableView fx:id="tblOrderDetails" layoutX="24.0" layoutY="264.0" prefHeight="234.0" prefWidth="561.0">
          <columns>
             <TableColumn fx:id="colItemCode" text="Code" />
@@ -39,27 +51,51 @@
             <TableColumn fx:id="colDelete" minWidth="0.0" text="  Delete" />
          </columns>
       </TableView>
-      <Button layoutX="493.0" layoutY="214.0" mnemonicParsing="false" onAction="#btnAddToCartOnAction" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #2879a4;" text="ADD TO CART" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="493.0" layoutY="214.0" mnemonicParsing="false" onAction="#btnAddToCartOnAction" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #2879a4;" text="ADD TO CART" textFill="WHITE">
          <font>
             <Font size="11.0" />
          </font></Button>
       <Button fx:id="btnHome" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #0d7548;" text="Home" textFill="WHITE" />
-      <Label fx:id="txtCusName" layoutX="346.0" layoutY="90.0" prefHeight="25.0" prefWidth="150.0" />
-      <Label fx:id="txtItemName" layoutX="331.0" layoutY="128.0" prefHeight="25.0" prefWidth="139.0" />
-      <Label layoutX="24.0" layoutY="172.0" prefHeight="25.0" prefWidth="30.0" text="Price:" />
-      <TextField fx:id="txtQty" layoutX="419.0" layoutY="170.0" prefHeight="26.0" prefWidth="92.0" />
-      <Label layoutX="171.0" layoutY="170.0" prefHeight="25.0" prefWidth="84.0" text="Qty on hand:" />
-      <Label layoutX="394.0" layoutY="170.0" prefHeight="25.0" prefWidth="30.0" text="Qty:" />
-      <Label fx:id="txtPrice" layoutX="56.0" layoutY="173.0" prefHeight="25.0" prefWidth="77.0" />
-      <Label fx:id="txtQtyOnHand" layoutX="241.0" layoutY="170.0" prefHeight="25.0" prefWidth="84.0" />
+      <Label fx:id="txtCusName" layoutX="359.0" layoutY="90.0" prefHeight="25.0" prefWidth="150.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label fx:id="txtItemName" layoutX="335.0" layoutY="134.0" prefHeight="25.0" prefWidth="139.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label layoutX="24.0" layoutY="172.0" prefHeight="25.0" prefWidth="37.0" text="Price:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <TextField fx:id="txtQty" layoutX="419.0" layoutY="170.0" prefHeight="26.0" prefWidth="63.0">
+         <font>
+            <Font size="13.0" />
+         </font></TextField>
+      <Label layoutX="156.0" layoutY="172.0" prefHeight="25.0" prefWidth="92.0" text="Qty on hand:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="394.0" layoutY="170.0" prefHeight="25.0" prefWidth="30.0" text="Qty:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="txtPrice" layoutX="56.0" layoutY="173.0" prefHeight="25.0" prefWidth="77.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label fx:id="txtQtyOnHand" layoutX="237.0" layoutY="172.0" prefHeight="25.0" prefWidth="84.0" text="fs">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
       <Button fx:id="btnPlaceOrder" layoutX="454.0" layoutY="506.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #0d7548;" text="PLACE ORDER" textFill="#f2f2f2" />
       <TextField fx:id="txtTotal" layoutX="113.0" layoutY="509.0" prefHeight="26.0" prefWidth="92.0" />
       <Label layoutX="29.0" layoutY="505.0" prefHeight="35.0" prefWidth="84.0" text="Total:">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Label>
-      <ComboBox fx:id="cmbCustomerId" layoutX="93.0" layoutY="91.0" prefWidth="150.0" />
-      <ComboBox fx:id="cmbItemId" layoutX="84.0" layoutY="134.0" prefWidth="150.0" />
+      <ComboBox fx:id="cmbCustomerId" layoutX="98.0" layoutY="91.0" onAction="#cmbCustomerIdOnAction" prefWidth="150.0" />
+      <ComboBox fx:id="cmbItemId" layoutX="84.0" layoutY="134.0" onAction="#cmbItemIdOnAction" prefWidth="150.0" />
       <Label layoutX="394.0" layoutY="38.0" prefHeight="30.0" prefWidth="114.0" text="ORDER ID:">
          <font>
             <Font name="System Bold Italic" size="16.0" />

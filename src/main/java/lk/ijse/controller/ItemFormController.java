@@ -83,6 +83,9 @@ public class ItemFormController {
             );
             obList.add(itemTm);
         }
+          for (ItemTm itemtm: obList){
+              System.out.println(itemtm.toString());
+          }
           tblCustomer.setItems(obList);
 
     }
@@ -129,6 +132,7 @@ public class ItemFormController {
         ItemDTO itemDTO = new ItemDTO(iId,iName,price,qty);
 
         boolean isUpdated = itemBO.updateItem(itemDTO);
+        loadAllItem();
         if (isUpdated == true) {
             new Alert(Alert.AlertType.CONFIRMATION,"Item updated").show();
         }else{

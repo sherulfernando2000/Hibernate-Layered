@@ -45,5 +45,12 @@ public class CustomerBOImpl implements CustomerBO {
         return null;
     }
 
+    @Override
+    public CustomerDTO searchCustomer(Integer cusId) {
+        Customer customer = customerDAO.search(cusId);
+        CustomerDTO customerDTO = new CustomerDTO(customer.getId(),customer.getName(), customer.getAddress(), customer.getTele());
+        return customerDTO;
+    }
+
 
 }
